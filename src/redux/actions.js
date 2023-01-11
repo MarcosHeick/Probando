@@ -1,10 +1,10 @@
 //import axios from 'axios';
 import items from '../db.json'
-import appFireBase from '../Firebase';
-import {getFirestore,collection,addDoc, getDoc, getDocs, doc} from 'firebase/firestore'
+// import appFireBase from '../Firebase';
+import {collection,addDoc, getDoc, getDocs, doc} from 'firebase/firestore'
 import swal from 'sweetalert';
+import db from '../Firebase';
 
-const db= getFirestore(appFireBase)
 
 const data = items
 

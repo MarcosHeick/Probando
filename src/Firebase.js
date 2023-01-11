@@ -1,6 +1,7 @@
 
 
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 const{APIKEY,AUTHDOMAIN,STORAGEBUCKET,MESSAGIN,APPID,MEASURENT} = process.env
 
@@ -17,5 +18,6 @@ const{APIKEY,AUTHDOMAIN,STORAGEBUCKET,MESSAGIN,APPID,MEASURENT} = process.env
 
 
 const appFireBase = initializeApp(firebaseConfig);
+const db= getFirestore(appFireBase)
 
-export default appFireBase
+export default db
