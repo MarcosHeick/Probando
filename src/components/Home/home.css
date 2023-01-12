@@ -1,16 +1,51 @@
-.main{
+.container{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
     display: flex;
-    position: fixed;
+    position: relative;
+    width: 40%;
+    height: 40%;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #dedee185;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
     flex-direction: column;
-    align-content: center;
-    justify-content: space-around;
+    flex-wrap: nowrap;
     align-items: center;
 }
+.labels{
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white
+}
+.btn{
+    
+    box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+    background-color: black;
+}
 
-.mainForm{
-display: flex;
-flex-direction: column;
-flex-wrap: nowrap;
-justify-content: center;
-align-items: center;
+.txt{
+    font-size:1rem ;
+    color: rgba(180, 31, 31, 0.595);
+}
+.title{
+    margin-bottom: 3rem;
+    color: #fff;
+font-size: 5rem;
+font-weight: bold;
+font-family: Helvetica;
+text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+.submit{
+    flex-direction: column;
+    display: flex;
+    margin-top: 4rem;
+  
+}
+
+body{
+    background-image: url("../../799.jpg");
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.669);
+
+   
 }

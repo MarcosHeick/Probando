@@ -1,0 +1,29 @@
+.Column2{
+
+    background-color: rgba(142, 123, 86, 0.334) ;
+    
+}
+.Column1{
+    background-color: rgba(210, 160, 66, 0.461) ;
+}
+.divMainData{
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.mainData{
+    margin-top: 4rem;
+    width: 65%;
+    align-items: center;
+}
+.header{
+   align-items: center;
+
+}
+.title{
+    margin-top: 3rem;
+}
+.mainData{
+    background-color: aliceblue;
+}

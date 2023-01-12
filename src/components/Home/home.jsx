@@ -6,7 +6,9 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 //import FormGroup from 'react-bootstrap/esm/FormGroup';
 import Alert from 'react-bootstrap/Alert';
-import swal from "sweetalert";
+import Swal from 'sweetalert2';
+import './home.css'
+
 
 export default function Home (){
     const dispatch = useDispatch();
@@ -76,23 +78,27 @@ export default function Home (){
     function handleClick(send){
     //console.log(input,"asd")
    
-    if (Object.keys(errors).length!==0){return swal({
+    if (Object.keys(errors).length!==0){return Swal.fire({
         title: 'Datos incompletos o Erroneos',
         icon: 'error',
       })}
       send.preventDefault();        
-      swal({
-        title: 'Datos cargados con Exito',
-        icon: 'success',
-        })
-    return postForm(input)         
-    
+      
+     postForm(input)         
+     setInput({})
+     send.target.reset()
+        Swal.fire({
+            icon: 'success',
+            title: 'Los datos se han cargado correctamente',
+            footer: '<a href="https://prueba-tecnica-gamma.vercel.app/data">Ver la base de datos?</a>'
+          })
+      
 
     }
 
 return(
   
-    <div className='continer'>
+    <div className='container'>
         <h1 className='title'> 
             Formulario
         </h1>
@@ -103,17 +109,17 @@ return(
             
           
                 <Form.Group
-                 className='mb-3'
+                 className='mb-4'
                  
-                 controlId="floatingInput" >
+                 >
                                
 
-                    <Form.Label>
+                    <Form.Label className='mb-3'>
                     {e.label}
                     </Form.Label>
                     <Form.Control
                     name={e.name}
-                    className={'input'+e.name}
+                    className='labels'
                     type={e.type}
                     onChange={(e)=>handleChange(e)}
                     required={e.required}
@@ -121,20 +127,21 @@ return(
                     max='2016-12-31'
                     placeholder={e.label}
                     />
-                    <Form.Text className="text-muted">{e.required===true&&!input[e.name]?'Campo obligatorio':null}</Form.Text>                
-                    {errors[e.name]&&(<Alert variant='warning' >{errors[e.name]}</Alert>)}
+                    <Form.Text className="txt" >{e.required===true&&!input[e.name]?'Campo obligatorio':null}</Form.Text>                
+                    {errors[e.name]&&(<Alert className='alert' variant='warning' >{errors[e.name]}</Alert>)}
                     </Form.Group>
             
         :
 
         e.type==='select'?
         <Form.Group
-        className='mb-3'
+        className='mb-4'
         controlId="floatingInput" >
-              <Form.Label>
+              <Form.Label className='mb-3'>
                         {e.label}
               </Form.Label>
                 <Form.Select
+                className='SelectC'
                 name={e.name} 
                 onChange={(e)=>handleChange(e)} 
                 required={e.required}
@@ -148,7 +155,7 @@ return(
                      e.options?.map(el=> 
                     {
                     return (
-                        <option name={e.name} className={'option'+el.value} value={el.value}>
+                        <option name={e.name} className='options' value={el.value}>
                             {el.label}
                         </option>)
                     }
@@ -156,19 +163,19 @@ return(
                     }
                     
                 </Form.Select>
-                <Form.Text className="text-muted">{e.required===true&&!input[e.name]?'Campo obligatorio':null}</Form.Text>
+                <Form.Text className="txt">{e.required===true&&!input[e.name]?'Campo obligatorio':null}</Form.Text>
                
              </Form.Group>
 
         :
         e.type==='submit'?
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Button variant="outline-primary" type={e.type} >{e.label}</Button>
+        <Form.Group className='submit' controlId="formBasicCheckbox">
+            <Button className='btn' variant="dark" type={e.type} >{e.label}</Button>
             </Form.Group> 
 
             :
-            <Form.Group  className="mb-3" controlId="formBasicCheckbox" value={!check.res} onChange={(e)=>handleChange(e)}>
-            <Form.Check name={e.type} type="checkbox" label={e.label}  required={e.required} />
+            <Form.Group  className="mb-4" controlId="formBasicCheckbox" value={!check.res} onChange={(e)=>handleChange(e)}>
+            <Form.Check  name={e.type} type="checkbox" label={e.label}  required={e.required} />
           </Form.Group>
          )})
 

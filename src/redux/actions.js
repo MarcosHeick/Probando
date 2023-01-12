@@ -29,10 +29,7 @@ export  async function postForm(payload){
             ...payload,
         })
         
-        swal({
-            title: 'Datos cargados con Exito',
-            icon: 'success',
-            })
+       
         
         return ({
             type:'POST_FORM',
